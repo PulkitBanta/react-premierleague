@@ -13,7 +13,7 @@ it("should only create fixtures when the date is in future", () => {
       fixtures: [
         {
           date: "2021-05-11T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
       ],
     },
@@ -21,7 +21,7 @@ it("should only create fixtures when the date is in future", () => {
       fixtures: [
         {
           date: "2021-05-11T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
       ],
     },
@@ -36,7 +36,7 @@ it("should only create fixtures if team score is null", () => {
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
       ],
     },
@@ -44,7 +44,7 @@ it("should only create fixtures if team score is null", () => {
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
       ],
     },
@@ -68,7 +68,7 @@ it("should get all event details for both teams for one game", () => {
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
       ],
     },
@@ -80,7 +80,7 @@ it("should get all event details for both teams for one game", () => {
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
       ],
     },
@@ -112,15 +112,15 @@ it("should get all event details all teams with more than one game having differ
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
         {
           date: "2021-05-04T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
         {
           date: "2021-05-05T11:00:00",
-          against: "Liverpool",
+          opponent: "Liverpool",
         },
       ],
     },
@@ -132,15 +132,15 @@ it("should get all event details all teams with more than one game having differ
       fixtures: [
         {
           date: "2021-05-01T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
         {
           date: "2021-05-04T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
         {
           date: "2021-05-05T11:00:00",
-          against: "Manchester United",
+          opponent: "Manchester United",
         },
       ],
     },

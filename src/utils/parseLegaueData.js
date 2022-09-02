@@ -54,7 +54,7 @@ function getEventDetails(
       : {}),
     fixtures: [
       ...(previousState?.fixtures || []),
-      { date: dateOfEvent, against: opponentName },
+      { date: dateOfEvent, opponent: opponentName },
     ],
   };
 }
