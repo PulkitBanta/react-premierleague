@@ -1,4 +1,6 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+    margin: 0rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: PremierSans-Regular,Arial,Helvetica Neue,Helvetica,sans-serif;
 }

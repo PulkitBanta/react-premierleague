@@ -61,12 +61,12 @@ function getEventDetails(
 
 /**
  *
- * @param {*} leageDataList List of the league data
+ * @param {*} leagueDataList List of the league data
  * @returns formatted object with the fixtures, gameStatuses, totalPoints, totalGoalDifference, games played
  */
-export const parseLeagueData = (leageDataList) => {
+export const parseLeagueData = (leagueDataList) => {
   // parse and format the data
-  return leageDataList.reduce((acc, leagueData) => {
+  return leagueDataList.reduce((acc, leagueData) => {
     // getting team name and score from score object
     const [firstTeamName, secondTeamName] = Object.keys(leagueData.score);
     const [firstTeamScore, secondTeamScore] = Object.values(leagueData.score);

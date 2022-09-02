@@ -1,0 +1,60 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    width: 80%;
+    margin: 2rem;
+    border-spacing: 0;
+}
+
+table > thead {
+    color: #6c6c6c;
+    background-color: #f8f8f8;
+}
+
+tbody > tr {
+    cursor: pointer;
+    text-align: center;
+}
+
+tbody > tr:hover {
+    background-color: #f8f8f8;
+}
+
+td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #808080;
+}
+
+.team {
+    text-align: left;
+    padding: 12px 20px;
+}
+
+.form {
+    display: inline-block;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin: 0 0.2rem;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.form.W {
+    background-color: #13cf00;
+}
+
+.form.D {
+    background-color: #76766f;
+}
+
+.form.L {
+    background-color: #d81920;
+}
