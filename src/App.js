@@ -4,6 +4,7 @@ import { parseLeagueData } from "./utils/parseLegaueData";
 import PremierLegaueTable from "./components/PremierLeagueTable/PremierLeagueTable";
 import { TAB_KEYS } from "./constants/tabKeys";
 import "./styles.css";
+import FixtureList from "./components/FixtureList/FixtureList";
 
 export default function App() {
   // keep state of parsed leagueData & team selected for displaying the fixtures
@@ -18,7 +19,13 @@ export default function App() {
           {...{ leagueData, setActiveTab, setSelectedTeam }}
         />
       )}
-      {activeTab === TAB_KEYS.FIXTURE_TAB && selectedTeam}
+      {activeTab === TAB_KEYS.FIXTURE_TAB && (
+        <FixtureList
+          team={selectedTeam}
+          setActiveTab={setActiveTab}
+          fixtures={leagueData[selectedTeam].fixtures}
+        />
+      )}
     </>
   );
 }

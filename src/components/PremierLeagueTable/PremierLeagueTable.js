@@ -21,7 +21,7 @@ export default function PremierLegaueTable({
 
   return (
     <div className="container">
-      <h1>Premier League</h1>
+      <h1>Premier League Table</h1>
       <table>
         <thead>
           <tr>
@@ -55,7 +55,7 @@ export default function PremierLegaueTable({
               </td>
               <td>
                 {details.gameStatuses.map((status) => (
-                  <span class={`form ${status}`}>{status}</span>
+                  <span className={`form ${status}`}>{status}</span>
                 ))}
               </td>
             </tr>

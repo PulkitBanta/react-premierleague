@@ -4,3 +4,12 @@ body {
     box-sizing: border-box;
     font-family: PremierSans-Regular,Arial,Helvetica Neue,Helvetica,sans-serif;
 }
+
+.container {
+    width: 80%;
+    height: 96%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2% 10%;
+}

@@ -1,0 +1,26 @@
+button {
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    background-color: #f8f8f8;
+}
+
+button:hover {
+    background-color: #f5f5f5;
+}
+
+.card {
+    width: 50rem;
+    margin: 0.5rem 0;
+    text-align: left;
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    border-top: 2px solid #f8f8f8;
+    border-bottom: 2px solid #f8f8f8;
+}
+
+.teams {
+    padding-left: 5rem;
+}
