@@ -21,7 +21,6 @@ function getGameStatusAndPoints(score) {
 
 /**
  *
- * @param {*} teamName - name of the team
  * @param {*} teamScore - goals scored by the team
  * @param {*} opponentName - name of the opponent team
  * @param {*} opponentScore - goals scored by the opponent team
@@ -30,7 +29,6 @@ function getGameStatusAndPoints(score) {
  * @returns Object with gameStatuses, totalPoints, totalGoalDifference & fixtures
  */
 function getEventDetails(
-  teamName,
   teamScore,
   opponentName,
   opponentScore,
@@ -76,7 +74,6 @@ export const parseLeagueData = (leageDataList) => {
     // assigning values in the object with key name as team namme
     // keeping fixtures as the match played and status as the status of each game (W: Win, L: Loss, D: Draw)
     acc[firstTeamName] = getEventDetails(
-      firstTeamName,
       firstTeamScore,
       secondTeamName,
       secondTeamScore,
@@ -84,7 +81,6 @@ export const parseLeagueData = (leageDataList) => {
       acc[firstTeamName] || {}
     );
     acc[secondTeamName] = getEventDetails(
-      secondTeamName,
       secondTeamScore,
       firstTeamName,
       firstTeamScore,
