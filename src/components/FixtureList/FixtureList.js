@@ -15,7 +15,10 @@ export default function FixtureList({ team, setActiveTab, fixtures }) {
       <h1>Fixtures for {team}</h1>
       {ascSortedFixtures.map((fixture) => (
         <div key={fixture.date} className="card">
-          <h3>{format(new Date(fixture.date), "dd/MM, HH:mm")}</h3>
+          <h3>
+            {format(new Date(fixture.date), "dd/MM, HH:mm")}
+            {fixture.isDiscarded && "(Discarded)"}
+          </h3>
           <div className="teams">
             {team} &#8623; {fixture.opponent}
           </div>
