@@ -8,7 +8,7 @@ const mockLeagueData = [
 ];
 
 it("should only create fixtures when the date is in future", () => {
-  expect(parseLeagueData(mockLeagueData)).toEqual({
+  expect(parseLeagueData(mockLeagueData)).toStrictEqual({
     "Manchester United": {
       fixtures: [
         {
@@ -31,7 +31,7 @@ it("should only create fixtures when the date is in future", () => {
 it("should only create fixtures if team score is null", () => {
   expect(
     parseLeagueData([{ ...mockLeagueData[0], date: "2021-05-01T11:00:00" }])
-  ).toEqual({
+  ).toStrictEqual({
     "Manchester United": {
       fixtures: [
         {
@@ -59,7 +59,7 @@ it("should get all event details for both teams for one game", () => {
         date: "2021-05-01T11:00:00",
       },
     ])
-  ).toEqual({
+  ).toStrictEqual({
     "Manchester United": {
       gameStatuses: ["W"],
       totalPoints: 3,
@@ -103,7 +103,7 @@ it("should get all event details all teams with more than one game having differ
         date: "2021-05-05T11:00:00",
       },
     ])
-  ).toEqual({
+  ).toStrictEqual({
     "Manchester United": {
       gameStatuses: ["W", "L", "D"],
       totalPoints: 4,

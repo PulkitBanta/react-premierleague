@@ -1,4 +1,5 @@
 import { TAB_KEYS } from "../../constants/tabKeys";
+import descLeagueDataByPoints from "../../utils/descLeagueDataByPoints";
 import "./premierLeagueTable.styles.css";
 
 export default function PremierLegaueTable({
@@ -7,11 +8,7 @@ export default function PremierLegaueTable({
   setActiveTab,
 }) {
   // sort the leagueData based on the total points for each team
-  const sortedLeagueData = Object.fromEntries(
-    Object.entries(leagueData).sort(
-      ([, a], [, b]) => b.totalPoints - a.totalPoints
-    )
-  );
+  const sortedLeagueData = descLeagueDataByPoints(leagueData);
 
   // change tab to fixture tab for particular team
   const handleOnRowClick = (teamName) => () => {

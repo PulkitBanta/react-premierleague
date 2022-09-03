@@ -1,11 +1,11 @@
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 import { TAB_KEYS } from "../../constants/tabKeys";
+import ascFixturesByDate from "../../utils/ascFixturesByDate";
 import "./fixtureList.styles.css";
 
 export default function FixtureList({ team, setActiveTab, fixtures }) {
-  const ascSortedFixtures = fixtures.sort((a, b) =>
-    compareAsc(new Date(a.date), new Date(b.date))
-  );
+  const ascSortedFixtures = ascFixturesByDate(fixtures);
+  // handle click on the button & change the tab to premier league table
   const handleOnBackClick = () => {
     setActiveTab(TAB_KEYS.PREMIER_LEAGUE_TAB);
   };
