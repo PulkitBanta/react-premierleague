@@ -1,5 +1,4 @@
-// import { compareAsc } from "date-fns";
-const { compareAsc } = require("date-fns");
+const { compareDesc } = require("date-fns");
 
 const CURRENT_DATE = "5 May 2021 14:00:00";
 
@@ -36,14 +35,17 @@ function getEventDetails(
   previousState
 ) {
   const goalDifference = teamScore - opponentScore,
-    [gameState, teamPoints] = getGameStatusAndPoints(goalDifference);
+    [gameState, teamPoints] = getGameStatusAndPoints(goalDifference),
+    isDiscarded = teamScore === null && opponentScore === null,
+    isFutureEvent =
+      compareDesc(new Date(dateOfEvent), new Date(CURRENT_DATE)) === -1;
+
   return {
     ...previousState,
     // games with score as null are not counted for Draw (assuming game didn'nt occurred) & are only added for the fixtures
+    // having isDiscarded value to true
     // games which are in future are only considered for the fixtures
-    ...(teamScore !== null &&
-    opponentScore !== null &&
-    compareAsc(new Date(dateOfEvent), new Date(CURRENT_DATE)) === -1
+    ...(!isDiscarded && !isFutureEvent
       ? {
           gameStatuses: [...(previousState?.gameStatuses || []), gameState],
           totalPoints: (previousState?.totalPoints || 0) + teamPoints,
@@ -54,7 +56,11 @@ function getEventDetails(
       : {}),
     fixtures: [
       ...(previousState?.fixtures || []),
-      { date: dateOfEvent, opponent: opponentName },
+      {
+        date: dateOfEvent,
+        opponent: opponentName,
+        isDiscarded: isDiscarded && !isFutureEvent,
+      },
     ],
   };
 }

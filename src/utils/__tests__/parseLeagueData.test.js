@@ -14,6 +14,7 @@ it("should only create fixtures when the date is in future", () => {
         {
           date: "2021-05-11T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: false,
         },
       ],
     },
@@ -22,13 +23,14 @@ it("should only create fixtures when the date is in future", () => {
         {
           date: "2021-05-11T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: false,
         },
       ],
     },
   });
 });
 
-it("should only create fixtures if team score is null", () => {
+it("should create fixture with discarded as true if scores are null", () => {
   expect(
     parseLeagueData([{ ...mockLeagueData[0], date: "2021-05-01T11:00:00" }])
   ).toStrictEqual({
@@ -37,6 +39,7 @@ it("should only create fixtures if team score is null", () => {
         {
           date: "2021-05-01T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: true,
         },
       ],
     },
@@ -45,6 +48,7 @@ it("should only create fixtures if team score is null", () => {
         {
           date: "2021-05-01T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: true,
         },
       ],
     },
@@ -69,6 +73,7 @@ it("should get all event details for both teams for one game", () => {
         {
           date: "2021-05-01T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: false,
         },
       ],
     },
@@ -81,13 +86,14 @@ it("should get all event details for both teams for one game", () => {
         {
           date: "2021-05-01T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: false,
         },
       ],
     },
   });
 });
 
-it("should get all event details all teams with more than one game having different outcome", () => {
+it("should get event details of two teams with different outcomes", () => {
   expect(
     parseLeagueData([
       {
@@ -102,6 +108,14 @@ it("should get all event details all teams with more than one game having differ
         score: { "Manchester United": 2, Liverpool: 2 },
         date: "2021-05-05T11:00:00",
       },
+      {
+        score: { "Manchester United": null, Liverpool: null },
+        date: "2021-05-06T11:00:00",
+      },
+      {
+        score: { "Manchester United": null, Liverpool: null },
+        date: "2021-05-03T11:00:00",
+      },
     ])
   ).toStrictEqual({
     "Manchester United": {
@@ -113,14 +127,27 @@ it("should get all event details all teams with more than one game having differ
         {
           date: "2021-05-01T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: false,
         },
         {
           date: "2021-05-04T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: false,
         },
         {
           date: "2021-05-05T11:00:00",
           opponent: "Liverpool",
+          isDiscarded: false,
+        },
+        {
+          date: "2021-05-06T11:00:00",
+          opponent: "Liverpool",
+          isDiscarded: false,
+        },
+        {
+          date: "2021-05-03T11:00:00",
+          opponent: "Liverpool",
+          isDiscarded: true,
         },
       ],
     },
@@ -133,14 +160,27 @@ it("should get all event details all teams with more than one game having differ
         {
           date: "2021-05-01T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: false,
         },
         {
           date: "2021-05-04T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: false,
         },
         {
           date: "2021-05-05T11:00:00",
           opponent: "Manchester United",
+          isDiscarded: false,
+        },
+        {
+          date: "2021-05-06T11:00:00",
+          opponent: "Manchester United",
+          isDiscarded: false,
+        },
+        {
+          date: "2021-05-03T11:00:00",
+          opponent: "Manchester United",
+          isDiscarded: true,
         },
       ],
     },
